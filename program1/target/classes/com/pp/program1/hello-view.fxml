@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<FlowPane prefHeight="349.0" prefWidth="496.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pp.program1.HelloController">
+    <VBox prefHeight="349.0" prefWidth="496.0">
+        <MenuBar fx:id="menuBar">
+            <Menu mnemonicParsing="false" text="Файл">
+                <MenuItem mnemonicParsing="false" onAction="#saveAll" text="Экспорт презентации" />
+                <MenuItem mnemonicParsing="false" onAction="#SaveSlide" text="Быстрый экспорт слайда" />
+                <MenuItem mnemonicParsing="false" onAction="#setImage" text="Выбрать изображение" />
+                <MenuItem mnemonicParsing="false" onAction="#openFile" text="Открыть файл" />
+            </Menu>
+            <Menu mnemonicParsing="false" text="Правка">
+                <MenuItem mnemonicParsing="false" onAction="#clearSlide" text="Очистить слайд" />
+            </Menu>
+            <Menu mnemonicParsing="false" text="Анимация">
+                <RadioMenuItem fx:id="darkAnim" mnemonicParsing="false" selected="true" text="Вращение">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="animation" />
+                    </toggleGroup>
+                </RadioMenuItem>
+                <RadioMenuItem fx:id="moveAnim" mnemonicParsing="false" text="Выцветание" toggleGroup="$animation" />
+                <RadioMenuItem fx:id="fastAnim" mnemonicParsing="false" onAction="#changeSpeed" text="Быстро">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="animationspeed" />
+                    </toggleGroup>
+                </RadioMenuItem>
+                <RadioMenuItem fx:id="slowAnim" mnemonicParsing="false" onAction="#changeSpeed" selected="true" text="Медленно" toggleGroup="$animationspeed" />
+            </Menu>
+         <Menu mnemonicParsing="false" text="Инструментарий">
+           <items>
+             <MenuItem mnemonicParsing="false" onAction="#addText" text="Добавить текст" />
+               <RadioMenuItem fx:id="painter" mnemonicParsing="false" selected="true" text="Кисть">
+                  <toggleGroup>
+                     <ToggleGroup fx:id="instrument" />
+                  </toggleGroup>
+               </RadioMenuItem>
+               <RadioMenuItem fx:id="erase" mnemonicParsing="false" text="Ластик" toggleGroup="$instrument" />
+           </items>
+         </Menu>
+        </MenuBar>
+        <HBox prefHeight="289.0" prefWidth="48.0">
+            <AnchorPane fx:id="slide" prefHeight="290.0" prefWidth="499.0">
+                <Canvas fx:id="graphics" height="289.0" width="496.0" />
+            </AnchorPane>
+        </HBox>
+        <ToolBar prefHeight="40.0" prefWidth="200.0">
+            <Button layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#addSlide" prefHeight="25.0" prefWidth="77.0" text="Добавить " textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Button mnemonicParsing="false" onAction="#duplicateSlide" text="Копировать" />
+            <Button mnemonicParsing="false" onAction="#moveBackward" text="Перемещ. назад" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Button mnemonicParsing="false" onAction="#prev" text="&lt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Label fx:id="num" text="1" />
+            <Button layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#next" text="&gt;" textOverrun="CENTER_WORD_ELLIPSIS" />
+            <Button layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onAction="#moveForward" text="Перемещ. вперед" textOverrun="CENTER_WORD_ELLIPSIS" />
+        </ToolBar>
+    </VBox>
+</FlowPane>
